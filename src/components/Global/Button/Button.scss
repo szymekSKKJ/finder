@@ -1,0 +1,17 @@
+.default-button {
+  background-color: #fbd0d0;
+  font-size: 18px;
+  color: white;
+  padding: 4px 20px 4px 20px;
+  border-radius: 1000px;
+  font-weight: 400;
+  transition: 250ms;
+}
+
+.default-button.valid {
+  background-color: #f76e6e;
+}
+
+.default-button.not-valid {
+  background-color: #fbd0d0;
+}

@@ -1,0 +1,38 @@
+.register-and-login-forms {
+  width: 100%;
+  max-width: 768px; // Max width of .app
+  height: 100dvh;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.register-and-login-forms.animationIn {
+  animation: register-and-login-forms-animationIn 500ms forwards;
+
+  @keyframes register-and-login-forms-animationIn {
+    0% {
+      transform: translateX(200%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.register-and-login-forms.animationOut {
+  animation: register-and-login-forms-animationOut 500ms forwards;
+
+  @keyframes register-and-login-forms-animationOut {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+}

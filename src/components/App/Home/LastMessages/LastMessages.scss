@@ -1,0 +1,215 @@
+.last-messages {
+  width: 100%;
+  height: calc(100dvh - 46px); // Height of MainNavigation element
+  background-color: #ecf1f4;
+  position: absolute;
+  overflow: auto;
+  margin: 0px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  $image-width: 52px;
+  $message-padding-left: 8px;
+  $is-read-by-this-user-width: 14px;
+
+  .message {
+    all: unset;
+    width: calc(100% - ($message-padding-left * 2));
+    height: 58px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px $message-padding-left 5px $message-padding-left;
+    box-shadow: 0px 0px 2px 0px #cccccc;
+    opacity: 0;
+    animation: apear-message 250ms forwards;
+    overflow: hidden;
+    position: relative;
+
+    @keyframes apear-message {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .user-image {
+      width: $image-width;
+      height: $image-width;
+      aspect-ratio: 1/1;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      margin-right: 6px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+      }
+    }
+
+    .user-image.active {
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: #9ddf82;
+        border-radius: 100%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        transform: translate(16%, -16%);
+        z-index: 100;
+        border: solid 2px white;
+      }
+    }
+
+    .username-and-last-message-wrapper {
+      width: calc(100% - ($image-width + $is-read-by-this-user-width + ($is-read-by-this-user-width / 2)));
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .username {
+        width: 100%;
+        height: auto;
+        font-size: 17px;
+        line-height: 1;
+        margin-top: 5px;
+
+        .exclamation-mark {
+          font-size: 17px;
+          color: red;
+          font-weight: 500;
+        }
+      }
+
+      .last-message {
+        width: 95%;
+        line-height: 1;
+        height: auto;
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-top: 4px;
+        margin-left: 10px;
+      }
+
+      .sent-at {
+        width: auto;
+        margin-left: auto;
+        letter-spacing: 0px;
+        font-size: 11px;
+        line-height: 1;
+        margin-bottom: 0px;
+      }
+    }
+
+    .is-read-by-this-user {
+      width: $is-read-by-this-user-width;
+      height: 75%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      margin-left: 0px;
+
+      img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+        animation: apear-read 500ms forwards ease-in-out;
+        opacity: 0;
+        transform: translateX(200px);
+
+        @keyframes apear-read {
+          0% {
+            opacity: 0;
+            transform: translateX(200px);
+          }
+          60% {
+            transform: translateX(-10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0px);
+          }
+        }
+      }
+    }
+
+    .username-and-last-message-wrapper.not-read {
+      p,
+      span {
+        font-weight: 400;
+      }
+    }
+
+    .did-not-reply {
+      width: 100%;
+      height: auto;
+      background-color: white;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      display: none;
+    }
+  }
+
+  .message.not-replyed {
+    opacity: 0.5 !important;
+  }
+
+  .empty-messages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    color: #9fb7c6;
+    padding: 10px;
+    line-height: 1.1;
+  }
+}
+
+.last-messages.animation-in {
+  transform: translateX(100%);
+  animation: last-messages-animation-in 500ms forwards;
+
+  @keyframes last-messages-animation-in {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.last-messages.animation-out {
+  transform: translateX(100%);
+  animation: last-messages-animation-out 500ms forwards;
+
+  @keyframes last-messages-animation-out {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

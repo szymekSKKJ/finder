@@ -1,0 +1,303 @@
+.find-users {
+  width: 100%;
+  height: calc(100dvh - 46px); // Height of MainNavigation element
+  background-color: #ecf1f4;
+  position: absolute;
+  overflow: hidden;
+  margin: 0px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  $image-width: 40vw;
+  $image-offset: 0.33;
+  $image-border-size: 1.075;
+
+  $offset-of-profile-image: calc($image-width * $image-offset + ($image-width * ($image-border-size - 1) / 2));
+
+  .components-transition-wrapper {
+    width: 100%;
+    height: 100%;
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+
+      .found-user {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: apear-found-user 333ms forwards;
+        opacity: 0;
+        transform: scale(0);
+
+        @keyframes apear-found-user {
+          0% {
+            opacity: 0;
+            transform: scale(0);
+          }
+
+          40% {
+            opacity: 1;
+            transform: scale(1.1);
+          }
+
+          60% {
+            opacity: 1;
+            transform: scale(0.9);
+          }
+
+          80% {
+            opacity: 1;
+            transform: scale(1.025);
+          }
+
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        $image-width: 40vw;
+        $image-offset: 0;
+        $image-border-size: 1.075;
+
+        $offset-of-profile-image: calc($image-width * $image-offset + ($image-width * ($image-border-size - 1) / 2));
+
+        .background-and-profile-image-wrapper {
+          width: 100%;
+          height: auto;
+          background-color: transparent;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: $offset-of-profile-image;
+          position: relative;
+
+          button {
+            width: 32px;
+            height: 32px;
+            background-color: transparent;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+
+            i {
+              font-size: 30px;
+              color: #f76e6e;
+            }
+          }
+
+          .background {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/8;
+            background-color: transparent;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .profile-image {
+            width: $image-width;
+            max-width: 300px;
+            height: $image-width;
+            max-height: 300px;
+            aspect-ratio: 1/1;
+            background-color: transparent;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transform: translate(-50%, calc($image-offset * 100%));
+            left: 50%;
+            bottom: 0px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: $image-border-size * 100%;
+              height: $image-border-size * 100%;
+              background-color: rgba(0, 0, 0, 0.2);
+              z-index: 1;
+              border-radius: 100%;
+              backdrop-filter: blur(4px);
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              z-index: 2;
+              border-radius: 100%;
+            }
+          }
+        }
+
+        .username {
+          width: 100%;
+          height: auto;
+          text-align: center;
+          font-size: 24px;
+          margin-top: 10px;
+        }
+
+        .age {
+          font-size: 16px;
+          line-height: 1;
+        }
+
+        .stats {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: space-evenly;
+          margin: 10px 0px 10px 0px;
+
+          p {
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            gap: 5px;
+            line-height: 1.2;
+            font-weight: 400;
+          }
+        }
+
+        .description {
+          width: 100%;
+          max-height: 100px;
+          background-color: transparent;
+          overflow: auto;
+          border-radius: 5px;
+          padding: 10px;
+          text-align: left;
+          line-height: 1.1;
+          font-size: 18px;
+        }
+
+        .actions {
+          width: 100%;
+          height: 32px;
+          background-color: transparent;
+          display: flex;
+          gap: 10px;
+          margin-top: 10px;
+          padding: 0px 12px 0px 12px;
+
+          button {
+            width: 100%;
+            height: 100%;
+            background-color: #fbd0d0;
+
+            border-radius: 4px;
+            font-size: 16px;
+            padding: 4px 16px;
+            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: #414e58;
+
+            i {
+              font-size: 18px;
+              transition: 250ms;
+            }
+          }
+        }
+      }
+
+      .searching-for-user {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .tip {
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          color: #9fb7c6;
+          padding: 10px;
+          line-height: 1.1;
+        }
+      }
+    }
+  }
+
+  .find-user-actions-wrapper {
+    width: 100%;
+    height: auto;
+    z-index: 10000;
+
+    .find-user-actions {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      flex-shrink: 0;
+      position: absolute;
+      bottom: 10px;
+      left: 0px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 10px 0px 10px;
+
+      button {
+        width: 50px;
+        height: 50px;
+        aspect-ratio: 1/1;
+        padding: 10px;
+        flex-shrink: 0;
+
+        i {
+          font-size: 24px;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+}
+
+.find-users.animation-in {
+  transform: translateX(100%);
+  animation: find-users-animation-in 500ms forwards;
+
+  @keyframes find-users-animation-in {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.find-users.animation-out {
+  transform: translateX(100%);
+  animation: find-users-animation-out 500ms forwards;
+
+  @keyframes find-users-animation-out {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

@@ -1,0 +1,340 @@
+@keyframes skeleton-loading {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+
+.comment.from-notification {
+  background-color: transparent;
+  animation: back-to-default 1500ms forwards;
+
+  @keyframes back-to-default {
+    0% {
+      background-color: transparent;
+    }
+    1% {
+      background-color: #f9b9b9;
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+}
+
+.comment {
+  width: 100%;
+  height: auto;
+
+  &:nth-child(2) {
+    margin-top: -10px;
+  }
+
+  .image-and-username-and-comment-content-wrapper {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+
+    .image {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .username-and-comment-content-wrapper {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+
+      .username {
+        font-size: 16px;
+      }
+
+      .comment-content {
+        width: 100%;
+        font-size: 15px;
+        line-height: 1.1;
+        padding-left: 6px;
+      }
+    }
+  }
+
+  > .comment-actions {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    button {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      gap: 10px;
+
+      i {
+        font-size: 18px;
+      }
+
+      i.fa-solid.fa-heart {
+        color: #f76e6e;
+      }
+    }
+  }
+
+  .replies-wrapper {
+    width: 100%;
+    padding-left: 42px;
+    max-height: 0vh;
+    background-color: white;
+    overflow: auto;
+    transition: max-height 500ms ease-in-out 0ms;
+
+    .replies {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .reply.from-notification {
+        background-color: transparent;
+        animation: back-to-default 1500ms forwards;
+
+        @keyframes back-to-default {
+          0% {
+            background-color: transparent;
+          }
+          1% {
+            background-color: #f9b9b9;
+          }
+          100% {
+            background-color: transparent;
+          }
+        }
+      }
+
+      .reply {
+        > .image-and-username-and-comment-content-wrapper {
+          .move-to-user-profile-button {
+            all: unset;
+
+            .image {
+              width: 28px;
+              height: 28px;
+              z-index: 1;
+            }
+          }
+
+          .username-and-comment-content-wrapper {
+            .username {
+              font-size: 15px;
+            }
+
+            .comment-content {
+              font-size: 15px;
+              padding-left: 6px;
+              padding-right: 6px;
+
+              .repling-to {
+                font-size: 15px;
+                font-weight: 400;
+                color: #f76e6e;
+              }
+            }
+          }
+        }
+
+        > .actions {
+          button {
+            font-size: 14px;
+            gap: 5px;
+
+            i {
+              font-size: 17px;
+            }
+
+            &:nth-child(2) {
+              i {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+
+      .reply-skeleton {
+        > .image-and-username-and-comment-content-wrapper {
+          width: 100%;
+          height: auto;
+          background-color: transparent;
+          display: flex;
+          gap: 6px;
+
+          .image {
+            width: 28px;
+            height: 28px;
+            background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+            animation: skeleton-loading 3000ms infinite linear;
+            background-size: 300% 300%;
+            border-radius: 1000px;
+          }
+
+          .username-and-comment-content-wrapper {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            .username {
+              width: 50%;
+              height: 15px;
+              background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+              animation: skeleton-loading 3000ms infinite linear;
+              background-size: 300% 300%;
+              border-radius: 1000px;
+            }
+
+            .comment-content {
+              width: 100%;
+              height: 15px;
+              padding-left: 6px;
+              padding-right: 6px;
+              background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+              animation: skeleton-loading 3000ms infinite linear;
+              background-size: 300% 300%;
+              border-radius: 1000px;
+            }
+          }
+        }
+
+        .actions {
+          width: 100%;
+          height: 20px;
+          display: flex;
+          padding-bottom: 8px;
+          justify-content: space-around;
+
+          button {
+            width: 30%;
+            height: auto;
+            background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+            animation: skeleton-loading 3000ms infinite linear;
+            background-size: 300% 300%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            gap: 10px;
+            border-radius: 1000px;
+
+            i {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .replies-wrapper.opened {
+    max-height: 50vh;
+  }
+}
+
+.comment-skeleton {
+  .image-and-username-and-comment-content-wrapper {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    gap: 6px;
+
+    .image {
+      width: 34px;
+      height: 34px;
+      background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+      animation: skeleton-loading 3000ms infinite linear;
+      background-size: 300% 300%;
+      border-radius: 100%;
+      flex-shrink: 0;
+    }
+
+    .username-and-comment-content-wrapper {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .username {
+        width: 100%;
+        height: 16px;
+        background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+        animation: skeleton-loading 3000ms infinite linear;
+        background-size: 300% 300%;
+        border-radius: 1000px;
+      }
+
+      .comment-content {
+        width: 100%;
+        height: 8vh;
+        background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+        animation: skeleton-loading 3000ms infinite linear;
+        background-size: 300% 300%;
+        margin: 5px 0px 5px 0px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .actions {
+    width: calc(100% - (34px + 6px));
+    height: 20px;
+    display: flex;
+    padding-bottom: 8px;
+    justify-content: space-evenly;
+    margin-left: auto;
+
+    button {
+      width: 40%;
+      height: auto;
+      background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+      animation: skeleton-loading 3000ms infinite linear;
+      background-size: 300% 300%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      gap: 10px;
+      border-radius: 1000px;
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+}

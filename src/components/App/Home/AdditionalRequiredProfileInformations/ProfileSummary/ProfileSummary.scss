@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap");
+
+.profile-summary {
+  width: 100%;
+  height: 100dvh;
+  background-color: #ecf1f4;
+  margin: 0px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  align-items: center;
+  overflow: hidden;
+
+  $image-width: 40vw;
+  $image-offset: 0.33;
+  $image-border-size: 1.125;
+
+  $offset-of-profile-image: calc($image-width * $image-offset + ($image-width * ($image-border-size - 1) / 2));
+
+  .background-and-profile-image-wrapper {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: $offset-of-profile-image;
+    position: relative;
+
+    button {
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+
+      i {
+        font-size: 30px;
+        color: #f76e6e;
+      }
+    }
+
+    .background {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      background-color: #b3b3b3;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .profile-image {
+      width: $image-width;
+      height: $image-width;
+      aspect-ratio: 1/1;
+      background-color: transparent;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      transform: translate(-50%, calc($image-offset * 100%));
+      left: 50%;
+      bottom: 0px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: $image-border-size * 100%;
+        height: $image-border-size * 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 100%;
+        backdrop-filter: blur(4px);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  .user-data {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 5px;
+    padding: 0px 5px 0px 5px;
+
+    .name {
+      font-size: 32px;
+      font-weight: 400;
+      font-family: "Fredoka", sans-serif;
+    }
+
+    .skills {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+      padding: 5px 10px 5px 10px;
+      overflow: auto;
+
+      .skill {
+        width: auto;
+        height: auto;
+        background-color: #fbd0d0;
+        border-radius: 1000px;
+        padding: 4px 12px 4px 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+
+        span {
+          font-size: 14px;
+          font-weight: 300;
+        }
+
+        i {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .description {
+      width: 100%;
+      height: auto;
+      max-height: 100px;
+      background-color: transparent;
+      padding: 5px 10px 5px 10px;
+      margin-top: 10px;
+      overflow: auto;
+      border-radius: 5px;
+
+      p {
+        text-align: left;
+        line-height: 1.1;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    margin-top: 50px;
+
+    .item {
+      width: calc(33.33vw - 0.7px);
+      height: calc(33.33vw - 0.7px);
+      background-color: #b3b3b3;
+    }
+  }
+
+  button {
+    position: sticky;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0px 0px 10px black);
+  }
+}
+
+.profile-summary.animationIn {
+  animation: profile-summary-animationIn 500ms forwards;
+
+  @keyframes profile-summary-animationIn {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.profile-summary.animationOut {
+  animation: profile-summary-animationOut 500ms forwards;
+
+  @keyframes profile-summary-animationOut {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}

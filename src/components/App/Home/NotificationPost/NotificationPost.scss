@@ -1,0 +1,37 @@
+.notification-post {
+  width: 100%;
+  height: calc(100dvh - 46px); // Height of MainNavigation element
+  background-color: #ecf1f4;
+  position: absolute;
+  overflow: auto;
+  margin: 0px auto 0px auto;
+}
+
+.notification-post.animation-in {
+  transform: translateX(100%);
+  animation: notification-post-animation-in 500ms forwards;
+
+  @keyframes notification-post-animation-in {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.notification-post.animation-out {
+  transform: translateX(0%);
+  animation: notification-post-animation-out 500ms forwards;
+
+  @keyframes notification-post-animation-out {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

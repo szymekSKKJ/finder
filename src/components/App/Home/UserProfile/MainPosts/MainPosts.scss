@@ -1,0 +1,271 @@
+.main-posts {
+  width: 100%;
+  height: auto;
+  background-color: #ecf1f4;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding-bottom: 10px;
+  gap: 5px;
+  overflow: hidden;
+
+  .write-post {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 2px 0px #cccccc;
+    padding: 8px;
+    gap: 10px;
+
+    .user {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .image {
+        width: 38px;
+        height: 38px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        width: 100%;
+        font-size: 17px;
+        font-weight: 300;
+      }
+    }
+
+    .textarea {
+      display: block;
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      outline-width: 0px;
+      padding-bottom: 2px;
+      font-size: 15px;
+      line-height: 1.1;
+      flex-shrink: 1;
+      margin-top: 15px;
+      border-bottom: solid 1px #364149;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      transition: 250ms;
+
+      &:empty::before {
+        content: "Podziel się czymś ze światem";
+        color: gray;
+      }
+    }
+
+    .textarea.not-empty {
+      border-bottom: solid 2px #f76e6e;
+    }
+
+    .attached-images {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 5px;
+
+      .image {
+        width: calc(33.33% - 3.5px);
+        height: calc(33.33% - 3.5px);
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 1/1;
+
+        &:first-child {
+          width: 100%;
+        }
+
+        img {
+          background-position: center;
+          background-size: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .attached-images:has(:not(:nth-child(3))) {
+      justify-content: flex-start;
+    }
+
+    .sharing-post {
+      width: 95%;
+      height: auto;
+
+      .post-wrapper {
+        box-shadow: 0px 0px 0px 0px #cccccc;
+      }
+    }
+
+    .actions {
+      width: 95%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+
+      .image {
+        width: auto;
+        height: 100%;
+        background-color: transparent;
+
+        i {
+          font-size: 20px;
+          color: #364149;
+        }
+      }
+
+      button {
+        font-size: 15px;
+        margin-left: auto;
+        padding: 4px 16px 4px 16px;
+      }
+    }
+  }
+
+  .posts {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.main-posts.animationIn {
+  animation: main-posts-animation-in 333ms forwards;
+
+  @keyframes main-posts-animation-in {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.main-posts.animationOut {
+  animation: main-posts-animation-out 333ms forwards;
+
+  @keyframes main-posts-animation-out {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+
+.post-skeleton {
+  padding: 8px;
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .image {
+      width: 38px;
+      height: 38px;
+      background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+      animation: skeleton-loading 3000ms infinite linear;
+      background-size: 300% 300%;
+      border-radius: 100%;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p {
+      width: 100%;
+      height: 32px;
+      background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+      animation: skeleton-loading 3000ms infinite linear;
+      background-size: 300% 300%;
+      padding-left: 6px;
+      border-radius: 1000px;
+    }
+  }
+
+  .content {
+    width: 100%;
+    height: 10vh;
+    background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+    animation: skeleton-loading 3000ms infinite linear;
+    background-size: 300% 300%;
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+  }
+
+  .actions {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    padding-bottom: 8px;
+    justify-content: space-around;
+    margin-top: 10px;
+
+    button {
+      width: 30%;
+      height: auto;
+      background-image: linear-gradient(to right, #f2f2f2, #cccccc, #f2f2f2, #cccccc);
+      animation: skeleton-loading 3000ms infinite linear;
+      background-size: 300% 300%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      gap: 10px;
+      border-radius: 1000px;
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+}

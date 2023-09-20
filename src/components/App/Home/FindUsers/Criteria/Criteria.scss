@@ -1,0 +1,209 @@
+.criteria {
+  width: 100%;
+  height: calc(100dvh - 42px);
+  background-color: #ecf1f4;
+  margin: 0px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+
+  z-index: 1000000000 !important; // Higher then MainNavigation
+
+  .header {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    padding-left: 0px;
+
+    button {
+      width: auto;
+      height: 100%;
+      background-color: transparent;
+      aspect-ratio: 1/1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        font-size: 24px;
+        color: #f76e6e;
+        margin-left: 20px;
+      }
+    }
+
+    button.back {
+      padding: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+
+      i {
+        margin-left: 0px;
+        font-size: 28px;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    padding-top: 0px;
+
+    > p {
+      color: #f76e6e;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1;
+      font-size: 32px;
+      word-spacing: -5px;
+      margin: 25px 0px 25px 0px;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .select-age {
+      width: 90%;
+    }
+
+    .select-gender {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: space-evenly;
+
+      .gender {
+        width: 38%;
+        height: auto;
+        background-color: #f9b9b9;
+        aspect-ratio: 1/1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        padding: 12px;
+        transition: 500ms;
+
+        i {
+          font-size: 54px;
+          margin-top: auto;
+          color: #ecf1f4;
+          transition: 500ms;
+        }
+
+        p {
+          font-size: 18px;
+          font-weight: 400;
+          margin-top: auto;
+          color: #ecf1f4;
+          transition: 500ms;
+        }
+      }
+
+      .gender.choosen {
+        background-color: #f76e6e;
+      }
+    }
+
+    .select-skills {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .skill {
+        width: calc(33.3% - 7px);
+        height: auto;
+        background-color: #f9b9b9;
+        aspect-ratio: 1/1;
+        position: relative;
+        border-radius: 4px;
+        transition: 500ms;
+
+        i {
+          font-size: 50px;
+          background-color: transparent;
+          position: absolute;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #ecf1f4;
+          transition: 500ms;
+        }
+
+        p {
+          width: 100%;
+          height: auto;
+          background-color: transparent;
+          text-align: center;
+          position: absolute;
+          bottom: 5px;
+          left: 0px;
+          font-weight: 400;
+          line-height: 1;
+          padding: 0px 4px 0px 4px;
+          color: #ecf1f4;
+          transition: 500ms;
+          font-size: 16px;
+        }
+      }
+
+      .skill.choosen {
+        background-color: #f76e6e;
+
+        i,
+        p {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.criteria.animation-in {
+  transform: translateX(100%);
+  animation: criteria-animation-in 500ms forwards;
+
+  @keyframes criteria-animation-in {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.criteria.animation-out {
+  transform: translateX(100%);
+  animation: criteria-animation-out 500ms forwards;
+
+  @keyframes criteria-animation-out {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

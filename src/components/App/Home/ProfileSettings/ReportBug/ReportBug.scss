@@ -1,0 +1,135 @@
+.report-bug {
+  width: 100%;
+  height: calc(100dvh - 46px); // Height of MainNavigation element
+  background-color: #ecf1f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+
+  .header {
+    width: 100%;
+    height: 50px;
+    background-color: #ecf1f4;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    z-index: 10;
+
+    button.back {
+      width: auto;
+      height: 100%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+
+      i {
+        font-size: 28px;
+        color: #f76e6e;
+      }
+    }
+
+    p {
+      font-size: 26px;
+      color: #f76e6e;
+      font-weight: 400;
+      margin-left: 6px;
+    }
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    padding-top: 6px;
+    gap: 20px;
+
+    .description {
+      font-size: 17px;
+      line-height: 1;
+      color: #f76e6e;
+      text-align: center;
+    }
+
+    .textarea {
+      width: 100%;
+      height: 100px;
+      background-color: white;
+      resize: none;
+      border: solid 2px #fbd0d0;
+      transition: 500ms;
+      border-radius: 4px;
+      font-size: 18px;
+      padding: 8px 12px 8px 12px;
+      color: #f76e6e;
+      font-weight: 400;
+      line-height: 1.1;
+      transition: 250ms;
+      outline: none;
+      overflow-wrap: break-word;
+      word-break: break-word;
+
+      &:focus {
+        border: solid 2px #f76e6e;
+      }
+
+      &:empty::before {
+        content: "Opisz problem";
+        color: gray;
+      }
+    }
+
+    .textarea.not-empty {
+      border: solid 2px #f76e6e;
+    }
+
+    .textarea.title {
+      height: auto;
+
+      &:empty::before {
+        content: "Tytuł";
+      }
+    }
+
+    button {
+      margin-top: 25px;
+    }
+  }
+}
+
+.report-bug.animation-in {
+  transform: translateX(100%);
+  animation: report-bug-animation-in 500ms forwards;
+
+  @keyframes report-bug-animation-in {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.report-bug.animation-out {
+  transform: translateX(0%);
+  animation: report-bug-animation-out 500ms forwards;
+
+  @keyframes report-bug-animation-out {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

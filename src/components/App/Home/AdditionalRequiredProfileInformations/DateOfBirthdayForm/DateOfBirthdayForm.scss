@@ -1,0 +1,136 @@
+.date-of-birthday-form-wrapper {
+  width: 100%;
+  height: 100dvh;
+  overflow: auto;
+  background-color: #ecf1f4;
+  margin: 0px auto 0px auto;
+  padding: 30px 5px 5px 5px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: #f76e6e;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1;
+    font-size: 32px;
+    word-spacing: -5px;
+    margin-bottom: 5px;
+  }
+
+  > p {
+    font-size: 17px;
+    line-height: 1;
+    color: #f76e6e;
+    text-align: center;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    form {
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .date-picker {
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        display: flex;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -5px;
+          left: 0px;
+          width: 100%;
+          height: 25px;
+          background-color: rgba(236, 241, 244, 0.25);
+          backdrop-filter: blur(3px);
+          pointer-events: none;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0px;
+          width: 100%;
+          height: 25px;
+          background-color: rgba(236, 241, 244, 0.25);
+          backdrop-filter: blur(3px);
+          pointer-events: none;
+        }
+
+        .days,
+        .months,
+        .years {
+          width: 100%;
+          height: 110px;
+          background-color: transparent;
+          overflow: auto;
+          scroll-snap-type: y mandatory;
+          padding: 22px 0px 22px 0px;
+          scroll-behavior: smooth;
+          overflow-x: hidden;
+          p {
+            height: 55px;
+            text-align: center;
+            font-size: 42px;
+            background-color: transparent;
+            scroll-snap-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f76e6e;
+          }
+        }
+      }
+
+      button {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+.date-of-birthday-form-wrapper.animationIn {
+  animation: date-of-birthday-form-wrapper-animationIn 500ms forwards;
+
+  @keyframes date-of-birthday-form-wrapper-animationIn {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.date-of-birthday-form-wrapper.animationOut {
+  animation: date-of-birthday-form-wrapper-animationOut 500ms forwards;
+
+  @keyframes date-of-birthday-form-wrapper-animationOut {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
